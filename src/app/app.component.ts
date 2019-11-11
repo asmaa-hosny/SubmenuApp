@@ -20,8 +20,8 @@ export class AppComponent {
   nestedDataSource: MatTreeNestedDataSource<FileNode>;
   dataChange: BehaviorSubject<FileNode[]> = new BehaviorSubject<FileNode[]>([]);
 
-  constructor(private myroute:Router) {
-    this.myroute.navigate(['GeneralView']);
+  constructor(public router: Router) {
+    
     this.nestedTreeControl = new NestedTreeControl<FileNode>(this._getChildren);
     this.nestedDataSource = new MatTreeNestedDataSource();
 
@@ -37,7 +37,7 @@ export class AppComponent {
             type: true,
             children: [
               {
-                filename: "General Child",
+                filename: "GeneralChild",
                 type: false,
                 children: [],
               }
@@ -56,9 +56,54 @@ export class AppComponent {
         ],
       },
       {
-        filename: "test2",
-        type: false,
-        children: [],
+        filename: "Universities",
+        type: true,
+        children: [
+              {
+            filename: "KAU",
+            type: true,
+            children: [
+              {
+                filename: "KAU-1",
+                type: false,
+                children: [],
+              },
+              {
+                filename: "KAU-2",
+                type: false,
+                children: [],
+              },
+              {
+                filename: "KAU-3",
+                type: true,
+                children: [
+                  {
+                    filename: "KAU-3-1",
+                    type: true,
+                    children: [
+                      {
+                        filename: "KAU-3-1-1",
+                        type: false,
+                        children: [],
+                      }
+                    ],
+                  }
+                ],
+              },
+             
+            ],
+          },
+          {
+            filename: "KFTMS",
+            type: false,
+            children: [],
+          },
+          {
+            filename: "KUS",
+            type: false,
+            children: [],
+          }
+        ],
       },
     ]);
   }

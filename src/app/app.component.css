@@ -12,6 +12,6 @@
 .example-tree{
     margin-left: 71px;
 }
-.display{
-    display: contents;
+a{
+    text-decoration: none;
 }
